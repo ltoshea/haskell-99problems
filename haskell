@@ -1,0 +1,19 @@
+-- Problem # 1 : last element of a list
+
+mylast (x:[]) = x
+mylast cat = mylast (tail cat)
+
+-- Problem # 2 : last but one element of a list ( second to last)
+-- myButLast [10,10,1,2,3] -> 2
+
+myButLast (x:y:[]) = x
+myButLast (x:cat) = myButLast cat
+
+-- Problem #3 : element at position k
+-- elementAt [1,2,3] 1 -> 2
+
+elementAt xs 0 = head xs
+-- elementAt (x:xs) 0 = x
+elementAt xs k =  elementAt (tail xs) (k-1)
+
+main = putStrLn $ show $ elementAt [1..10] 5
